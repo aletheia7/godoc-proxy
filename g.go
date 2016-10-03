@@ -19,6 +19,7 @@ html { background-color: whitesmoke; }
 body { background-color: white; }
 h4 { margin-top: 20px; }
 .container { width: 100%; } 
+/* .container { max-width: 728px; } */
 
 #x-projnav {
     min-height: 20px;

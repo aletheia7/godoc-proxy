@@ -8,9 +8,11 @@ from godoc.org is in g.go. Differences between godoc.org [site.css](https://godo
 
 Customize g.go site_css to your preferences.
 
+An example systemd.service file is available under systemd/godoc-proxy.service.
+
 #### License 
 
 Use of this source code is governed by a BSD-2-Clause license that can be found
 in the LICENSE file.
 
-[![BSD-2-Clause License](osi_logo_100X133_90ppi_0.png)](https://opensource.org/)
+[![BSD-2-Clause License](img/osi_logo_100X133_90ppi_0.png)](https://opensource.org/)

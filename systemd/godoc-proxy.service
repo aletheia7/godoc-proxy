@@ -1,0 +1,18 @@
+[Unit]
+Description = godoc proxy
+After = network.target iptables.service firewalld.service
+ConditionPathExists = /usr/local/bin/godoc-proxy
+
+[Service]
+PermissionsStartOnly = true
+User = nobody
+Group = nogroup
+#ExecStartPre = /sbin/setcap 'cap_net_bind_service=+ep' /usr/local/bin/godoc-proxy
+ExecStart = /usr/local/bin/godoc-proxy
+Restart = always
+RestartSec = 3s
+ReadOnlyPaths = /
+ProtectSystem = full
+
+[Install]
+WantedBy = multi-user.target

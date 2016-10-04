@@ -1,18 +1,21 @@
+ # vim: ft=systemd
 [Unit]
 Description = godoc proxy
-After = network.target iptables.service firewalld.service
+After = network.target
 ConditionPathExists = /usr/local/bin/godoc-proxy
 
 [Service]
 PermissionsStartOnly = true
 User = nobody
 Group = nogroup
-#ExecStartPre = /sbin/setcap 'cap_net_bind_service=+ep' /usr/local/bin/godoc-proxy
+ExecStartPre = /sbin/setcap 'cap_net_bind_service=+ep' /usr/local/bin/godoc-proxy
 ExecStart = /usr/local/bin/godoc-proxy
 Restart = always
 RestartSec = 3s
 ReadOnlyPaths = /
-ProtectSystem = full
+ReadWritePaths = /usr/local/bin
+ProtectSystem = full 
+StartLimitInterval = 0
 
 [Install]
 WantedBy = multi-user.target

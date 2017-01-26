@@ -1,6 +1,5 @@
-// Copyright 2016 aletheia7. All rights reserved.
-// Use of this source code is governed by a BSD-2-Clause
-// license that can be found in the LICENSE file.
+// Copyright 2016 aletheia7. All rights reserved. Use of this source code is
+// governed by a BSD-2-Clause license that can be found in the LICENSE file.
 
 package main
 
@@ -11,8 +10,11 @@ import (
 	"net/http"
 	"net/http/httputil"
 	"net/url"
+	"regexp"
 	"strings"
 )
+
+var parse_http = regexp.MustCompile(`(?:/http(?:s*):)(.*$)`)
 
 const site_css = `
 html { background-color: whitesmoke; }
@@ -173,6 +175,7 @@ func main() {
 			req.URL.Scheme = u.Scheme
 			req.URL.Host = u.Host
 			req.URL.Path = singleJoiningSlash(u.Path, req.URL.Path)
+			req.URL.Path = parse_http.ReplaceAllString(req.URL.Path, `$1`)
 			if targetQuery == "" || req.URL.RawQuery == "" {
 				req.URL.RawQuery = targetQuery + req.URL.RawQuery
 			} else {

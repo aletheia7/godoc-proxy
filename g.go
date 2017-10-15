@@ -10,11 +10,13 @@ import (
 	"flag"
 	"fmt"
 	"github.com/aletheia7/gogroup"
+	"gogitver"
 	"log"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
 	"regexp"
+	"runtime"
 	"strings"
 )
 
@@ -23,6 +25,17 @@ var parse_http = regexp.MustCompile(`(?:/http(?:s*):)(.*$)`)
 func main() {
 	setup_log()
 	phttp := flag.String("http", "127.0.0.1:80", "address:port")
+	ver := flag.Bool("v", false, "version")
+	gver := flag.Bool("gv", false, "go version")
+	flag.Parse()
+	switch {
+	case *ver:
+		log.Println("version:", gogitver.Git())
+		return
+	case *gver:
+		log.Println("go version:", runtime.Version())
+		return
+	}
 	p := new(Proxy)
 	host := "godoc.org"
 	u, err := url.Parse(fmt.Sprintf("https://%v/", host))

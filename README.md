@@ -1,14 +1,13 @@
-godoc-proxy is a go web server listening on :80. All communication to this web
+godoc-proxy is a go web server listening on 127.0.0.1:80. All communication to this web
 server is sent to godoc.org with the exception of /-/site.css. The site.css
 from godoc.org is in g.go. Differences between godoc.org [site.css](https://godoc.org/-/site.css):
-```css
-.container { width: 100%; } 
-/* .container { max-width: 728px; } */
-```
 
-Customize g.go site_css to your preferences.
+Customize override.css to your preferences.
 
-An example systemd.service file is available under systemd/godoc-proxy.service.
+### Install
+- go generate
+- go install
+- use godoc-proxy.service for Linux or godoc.plist for launchd
 
 #### License 
 

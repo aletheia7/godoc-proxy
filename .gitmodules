@@ -1,0 +1,6 @@
+[submodule "vendor/github.com/aletheia7/gogroup"]
+	path = vendor/github.com/aletheia7/gogroup
+	url = git@github.com:aletheia7/gogroup.git
+[submodule "vendor/github.com/aletheia7/ul"]
+	path = vendor/github.com/aletheia7/ul
+	url = git@github.com:aletheia7/ul.git

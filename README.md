@@ -1,8 +1,8 @@
 godoc-proxy is a go web server listening on 127.0.0.1:80. All communication to this web
-server is sent to godoc.org with the exception of /-/site.css. The site.css
-from godoc.org is in g.go. Differences between godoc.org [site.css](https://godoc.org/-/site.css):
+server is sent to godoc.org with the exception of /-/site.css.
 
-Customize override.css to your preferences.
+Customize override.css to your preferences. override.css currently changes
+colors and allows the full page width.
 
 ### Install
 - go generate

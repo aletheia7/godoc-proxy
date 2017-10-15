@@ -36,6 +36,7 @@ func main() {
 		log.Println("go version:", runtime.Version())
 		return
 	}
+	log.Println("version:", gogitver.Git())
 	p := new(Proxy)
 	host := "godoc.org"
 	u, err := url.Parse(fmt.Sprintf("https://%v/", host))

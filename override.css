@@ -6,7 +6,7 @@ body {
 
 .navbar-default, #x-footer {
     background: honeydew; 
-    border-color: hsl(209, 51%, 88%);
+    border: 1px solid palegreen; 
 }
 
 .navbar-default .navbar-nav > .active > a,

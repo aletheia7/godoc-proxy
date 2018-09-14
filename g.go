@@ -62,8 +62,7 @@ func main() {
 		Addr:    *phttp,
 		Handler: p,
 	}
-	gg := gogroup.New(nil)
-	gg.Add_signals(gogroup.Unix)
+	gg := gogroup.New(gogroup.Add_signals(gogroup.Unix))
 	go func() {
 		k := gg.Register()
 		defer gg.Unregister(k)
@@ -72,7 +71,7 @@ func main() {
 	}()
 	defer log.Println("stopped")
 	defer gg.Wait()
-	<-gg.Ctx.Done()
+	<-gg.Done()
 	srv.Close()
 }
 

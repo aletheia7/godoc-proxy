@@ -1,3 +1,5 @@
+// Copyright 2016 aletheia7. All rights reserved. Use of this source code is
+// governed by a BSD-2-Clause license that can be found in the LICENSE file.
 package main
 
 import (
@@ -12,7 +14,7 @@ import (
 const fn = `g_style.go`
 
 func main() {
-	fp, err := os.Open("style.css")
+	fp, err := os.Open("web/style.css")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -25,7 +27,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	override, err := ioutil.ReadFile("override.css")
+	override, err := ioutil.ReadFile("web/override.css")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -41,7 +43,8 @@ func main() {
 	}
 }
 
-var go_file = template.Must(template.New("").Parse(`
+var go_file = template.Must(template.New("").Parse(`// Copyright 2016 aletheia7. All rights reserved. Use of this source code is
+// governed by a BSD-2-Clause license that can be found in the LICENSE file.
 package main
 
 import (

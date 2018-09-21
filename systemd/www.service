@@ -1,0 +1,24 @@
+ # vim: ft=systemd
+[Unit]
+Description = %p 
+After = network-online.target
+Wants = network-online.target
+ConditionPathExists = /home/www/go/bin/godoc-proxy
+StartLimitInterval = 0
+
+[Service]
+User = 	www	
+Group =	www
+WorkingDirectory = ~
+AmbientCapabilities = cap_net_bind_service
+ExecStart = /home/www/go/bin/godoc-proxy -http :80
+ProtectSystem = strict 
+ProtectKernelTunables = true
+PrivateDevices = true 
+PrivateTmp = true
+ProtectControlGroups = true
+Restart = always
+RestartSec = 3s
+
+[Install]
+WantedBy = multi-user.target
